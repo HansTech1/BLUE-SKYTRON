@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Join Giveaway</title>
+</head>
+<body>
+  <h1>Join Giveaway: <%= giveaway.roomName %></h1>
+  <form action="/giveaway/<%= giveaway.code %>/join" method="post">
+    <label>Your Name:</label>
+    <input type="text" name="referrerName" required /><br>
+    <button type="submit">Join Giveaway</button>
+  </form>
+</body>
+</html>
