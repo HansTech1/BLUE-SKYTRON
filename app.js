@@ -5,7 +5,7 @@ const bodyParser    = require('body-parser');
 const { Sequelize, DataTypes } = require('sequelize');
 const passport      = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt        = require('bcrypt');
+const bcrypt        = require('bcryptjs');
 
 const app = express();
 app.set('view engine', 'ejs');
