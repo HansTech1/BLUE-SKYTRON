@@ -1,33 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Dashboard</title>
-</head>
+<html lang="en">
+<head> <title>Dashboard</title> </head>
 <body>
-  <h1>Dashboard for <%= user.username %></h1>
-  <p><a href="/create-giveaway">Create Giveaway</a> | <a href="/logout">Logout</a></p>
-  <h2>Your Giveaways</h2>
-  <ul>
-    <% giveaways.forEach(giveaway => { %>
-      <li>
-        <strong>Room:</strong> <%= giveaway.roomName %><br>
-        <strong>Referral Link:</strong>
-        <a href="/giveaway/<%= giveaway.code %>/join">
-          <%= hostUrl %>/giveaway/<%= giveaway.code %>/join
-        </a><br>
-        <strong>Total Referrals:</strong> <%= giveaway.referralCount %><br>
-        <strong>Referral Details:</strong>
-        <ul>
-          <% if(giveaway.referrals && giveaway.referrals.length > 0) { %>
-            <% giveaway.referrals.forEach(ref => { %>
-              <li><%= ref.referrerName %> at <%= new Date(ref.timestamp).toLocaleString() %></li>
-            <% }); %>
-          <% } else { %>
-            <li>No referrals yet.</li>
-          <% } %>
-        </ul>
-      </li>
-    <% }); %>
-  </ul>
+  <h1>Your Giveaways</h1>
+  <% giveaways.forEach(g => { %>
+    <p><%= g.roomName %> (Referrals: <%= g.referralCount %>)</p>
+  <% }); %>
+  <a href="/create-giveaway">Create Giveaway</a>
+  <a href="/logout">Logout</a>
 </body>
 </html>
