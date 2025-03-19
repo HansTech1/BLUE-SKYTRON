@@ -1,25 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>All Giveaway Rooms</title>
-</head>
+<html lang="en">
+<head> <title>Giveaways</title> </head>
 <body>
-  <h1>All Giveaway Rooms</h1>
-  <% if (user) { %>
-    <p>Welcome, <%= user.username %>! <a href="/logout">Logout</a> | <a href="/dashboard">Dashboard</a></p>
-  <% } else { %>
-    <p><a href="/login">Login</a> | <a href="/signup">Signup</a></p>
-  <% } %>
-  <ul>
-    <% giveaways.forEach(giveaway => { %>
-      <li>
-        <form action="/giveaway/<%= giveaway.code %>/join" method="get">
-          <button type="submit">
-            <%= giveaway.roomName %> (Referrals: <%= giveaway.referralCount %>)
-          </button>
-        </form>
-      </li>
-    <% }); %>
-  </ul>
+  <h1>Giveaways</h1>
+  <% giveaways.forEach(g => { %>
+    <a href="/giveaway/<%= g.code %>/join"><%= g.roomName %> (Referrals: <%= g.referralCount %>)</a><br>
+  <% }); %>
+  <a href="/login">Login</a> | <a href="/signup">Signup</a>
 </body>
 </html>
